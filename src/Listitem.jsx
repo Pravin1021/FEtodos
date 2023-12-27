@@ -71,6 +71,10 @@ const Listitem = () => {
     }
   }
 
+ const handlelogOut=()=>{
+    navigate("/")
+  }
+
   useEffect(()=>{
     getDataList()
   },[handleDelete,handleUpdate])
@@ -99,7 +103,7 @@ const Listitem = () => {
             
               )):<p style={{color:"red"}}>No List Found</p>}
             <div style={{display:"flex",justifyContent:"end",marginTop:"16px"}}>
-               <button className="btn btn-secondary" style={{marginLeft:"10px",backgroundColor:"none",padding:"1px"}} onClick={navigate("/")}>Logout</button>
+               <button className="btn btn-secondary" style={{marginLeft:"10px",backgroundColor:"none",padding:"1px"}} onClick={handlelogOut}>Logout</button>
             </div>  
           </div>
         </div>
