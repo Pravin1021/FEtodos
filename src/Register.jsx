@@ -7,6 +7,8 @@ const Register = () => {
     const [regMail,setRegMail]=useState("")
     const [regPassword,setRegPassword]=useState("")
     const [isRvalue,setIsRvalue]=useState({ismail:false,ispassword:false})
+    const [isUser,setIsuser]=useState([])
+    console.log(isUser);
 
     const navigate=useNavigate()
     //Navigate Login
@@ -14,7 +16,24 @@ const Register = () => {
         navigate("/")
     } 
 
-    const handleRegister=(e)=>{
+    //Get all User
+
+    const filterDta=async()=>{
+        await axios.get("https://todosbe-pz1y.onrender.com/Register")
+         .then(result=>{
+             let filterDta=result.data.filter((data)=>{
+                 return regMail===data.regMail
+             })
+             console.log(filterDta,"dd");
+             setIsuser(filterDta)
+            
+         })
+         .catch(error=>console.log(error))
+     }
+ 
+
+
+    const handleRegister=async(e)=>{
        e.preventDefault()
 
        if(regMail===""&&regPassword===""){
@@ -28,12 +47,20 @@ const Register = () => {
         }
         else{
             setIsRvalue({...isRvalue,ismail:false,ispassword:false})
-            axios.post("https://todosbe-pz1y.onrender.com/Register",{regMail:regMail,regPassword:regPassword})
-            .then((result)=>{
-                console.log(result)             
-            })
-            .catch(err=>console.log(err,"err"))
-            navigate("/")
+            await filterDta()
+            if(isUser.length>0){
+                alert("Already Registered")
+                navigate("/")
+            }
+            else{
+                axios.post("https://todosbe-pz1y.onrender.com/Register",{regMail:regMail,regPassword:regPassword})
+                .then((result)=>{
+                    console.log(result)             
+                })
+                .catch(err=>console.log(err,"err"))
+                navigate("/")
+            }
+          
         }
         }
       

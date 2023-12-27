@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom'
+
 
 
 const Listitem = () => {
@@ -8,6 +10,8 @@ const Listitem = () => {
   const [isEdit,setIsEdit]=useState(false)
   const [ID,setID]=useState("")
   const logmail= sessionStorage.getItem("mail")
+
+  const navigate=useNavigate()
 
   //ADD 
   const handleAdd=()=>{
@@ -74,8 +78,8 @@ const Listitem = () => {
   return (
     <>
       <div style={{width:"100vw",height:"100vh",background:"white",display:"flex",justifyContent:"center",alignItems:"center"}}>
-        <div style={{display:"flex",justifyContent:"center",alignItems:"center",background:"white",padding:"30px",borderRadius:"10px",width:"50%",boxShadow: "3px 6px 43px 0px rgba(0,0,0,0.69)"}}>
-          <div>
+        <div style={{display:"flex",justifyContent:"center",alignItems:"center",background:"white",padding:"20px",borderRadius:"10px",width:"60%",boxShadow: "3px 6px 43px 0px rgba(0,0,0,0.69)"}}>
+          <div style={{width:"80%"}}>
             <div className='mb-3' style={{textAlign:"center"}}>
               <h3>Todo List</h3>
             </div>
@@ -89,11 +93,14 @@ const Listitem = () => {
              
                 <ul key={i}>
                   <li style={{display:"inline",fontSize:"2rem",fontWeight:"bold"}}>{data.listItem}</li>
-                  <button className="btn btn-outline-secondary" style={{marginLeft:"10px"}}onClick={()=>handleEdit(data)}>Edit</button>
-                  <button className="btn btn-secondary" style={{marginLeft:"10px",backgroundColor:"none"}} onClick={()=>handleDelete(data)}>Delete</button>
+                  <button className="btn btn-outline-secondary" style={{marginLeft:"10px",padding:"1px"}}onClick={()=>handleEdit(data)}>Edit</button>
+                  <button className="btn btn-secondary" style={{marginLeft:"10px",backgroundColor:"none",padding:"1px"}} onClick={()=>handleDelete(data)}>Delete</button>
                 </ul>
             
-              )):"No List Found"}
+              )):<p style={{color:"red"}}>No List Found</p>}
+            <div style={{display:"flex",justifyContent:"end",marginTop:"16px"}}>
+               <button className="btn btn-secondary" style={{marginLeft:"10px",backgroundColor:"none",padding:"1px"}} onClick={navigate("/")}>Logout</button>
+            </div>  
           </div>
         </div>
       </div>    
