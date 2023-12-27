@@ -100,7 +100,7 @@ const Listitem = () => {
                 <ul key={i} style={{padding:"0px"}}>
                   <div style={{display:"flex",width:"100%",alignItems:"center"}}>
                     <div style={{width:"80%"}}><li style={{display:"inline",fontSize:"1rem",fontWeight:"bold"}}>{data.listItem}</li></div>
-                    <div style={{width:"20%",display:"flex"}}>
+                    <div style={{width:"20%",display:"flex",justifyContent:"end"}}>
                       <EditIcon style={{margin:"10px",color:"chocolate",fontWeight:"bold"}} onClick={()=>handleEdit(data)}/>
                       {/* <button className="btn btn-primary" style={{margin:"10px",padding:"1px"}} >Edit</button> */}
                       <DeleteIcon style={{margin:"10px",color:"red",fontWeight:"bold"}} onClick={()=>handleDelete(data)}/>                     
