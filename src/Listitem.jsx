@@ -90,20 +90,20 @@ const Listitem = () => {
             <label for="item" className="form-label">Items</label>
             <div className="input-group mb-3">
               <input type="text" className="form-control" id="item" value={todo} onChange={(e)=>setTodo(e.target.value)}/>
-              {!isEdit?<button className="btn btn-outline-secondary" type="submit" id="button-addon2" onClick={(e)=>handleAdd(e)}>ADD</button>
-                :<button className="btn btn-outline-secondary" type="submit" id="button-addon2" onClick={(e)=>handleUpdate(e)}>UPDATE</button>}
+              {!isEdit?<button className="btn btn-primary" type="submit" id="button-addon2" onClick={(e)=>handleAdd(e)}>ADD</button>
+                :<button className="btn btn-primary" type="submit" id="button-addon2" onClick={(e)=>handleUpdate(e)}>UPDATE</button>}
             </div>
             {masterData.length>0?masterData.map((data,i)=>(
              
-                <ul key={i}>
-                  <li style={{display:"inline",fontSize:"2rem",fontWeight:"bold"}}>{data.listItem}</li>
-                  <button className="btn btn-outline-secondary" style={{marginLeft:"10px",padding:"1px"}}onClick={()=>handleEdit(data)}>Edit</button>
-                  <button className="btn btn-secondary" style={{marginLeft:"10px",backgroundColor:"none",padding:"1px"}} onClick={()=>handleDelete(data)}>Delete</button>
+                <ul key={i} style={{padding:"0px"}}>
+                  <li style={{display:"inline",fontSize:"1rem",fontWeight:"bold"}}>{data.listItem}</li>
+                  <button className="btn btn-primary" style={{marginLeft:"10px",padding:"1px"}}onClick={()=>handleEdit(data)}>Edit</button>
+                  <button className="btn btn-primary" style={{marginLeft:"10px",backgroundColor:"none",padding:"1px"}} onClick={()=>handleDelete(data)}>Delete</button>
                 </ul>
             
               )):<p style={{color:"red"}}>No List Found</p>}
             <div style={{display:"flex",justifyContent:"end",marginTop:"16px"}}>
-               <button className="btn btn-secondary" style={{marginLeft:"10px",backgroundColor:"none",padding:"1px"}} onClick={handlelogOut}>Logout</button>
+               <button className="btn btn-primary" style={{marginLeft:"10px",borderColor:"#d69a3a",backgroundColor:"#d69a3a",padding:"1px"}} onClick={handlelogOut}>Logout</button>
             </div>  
           </div>
         </div>
