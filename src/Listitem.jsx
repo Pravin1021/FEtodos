@@ -98,12 +98,12 @@ const Listitem = () => {
             {masterData.length>0?masterData.map((data,i)=>(
              
                 <ul key={i} style={{padding:"0px"}}>
-                  <div style={{display:"flex",width:"100%"}}>
+                  <div style={{display:"flex",width:"100%",alignItems:"center"}}>
                     <div style={{width:"80%"}}><li style={{display:"inline",fontSize:"1rem",fontWeight:"bold"}}>{data.listItem}</li></div>
-                    <div style={{width:"20%"}}>
-                      <EditIcon style={{margin:"10px",font:"green",fontWeight:"bold"}} onClick={()=>handleEdit(data)}/>
+                    <div style={{width:"20%",display:"flex"}}>
+                      <EditIcon style={{margin:"10px",color:"chocolate",fontWeight:"bold"}} onClick={()=>handleEdit(data)}/>
                       {/* <button className="btn btn-primary" style={{margin:"10px",padding:"1px"}} >Edit</button> */}
-                      <DeleteIcon style={{margin:"10px",font:"red",fontWeight:"bold"}} onClick={()=>handleDelete(data)}/>                     
+                      <DeleteIcon style={{margin:"10px",color:"red",fontWeight:"bold"}} onClick={()=>handleDelete(data)}/>                     
                       {/* <button className="btn btn-primary" style={{margin:"10px",backgroundColor:"none",padding:"1px"}} >Delete</button> */}
                     </div>
                   </div>
