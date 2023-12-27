@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
+import DeleteIcon from '@mui/icons-material/Delete';
+import EditIcon from '@mui/icons-material/Edit';
 
 
 
@@ -82,7 +84,7 @@ const Listitem = () => {
   return (
     <>
       <div style={{width:"100vw",height:"100vh",background:"white",display:"flex",justifyContent:"center",alignItems:"center"}}>
-        <div style={{display:"flex",justifyContent:"center",alignItems:"center",background:"white",padding:"20px",borderRadius:"10px",width:"60%",boxShadow: "3px 6px 43px 0px rgba(0,0,0,0.69)"}}>
+        <div style={{display:"flex",justifyContent:"center",alignItems:"center",background:"white",padding:"20px",borderRadius:"10px",width:"80%",boxShadow: "3px 6px 43px 0px rgba(0,0,0,0.69)"}}>
           <div style={{width:"80%"}}>
             <div className='mb-3' style={{textAlign:"center"}}>
               <h3>Todo List</h3>
@@ -99,8 +101,10 @@ const Listitem = () => {
                   <div style={{display:"flex",width:"100%"}}>
                     <div style={{width:"80%"}}><li style={{display:"inline",fontSize:"1rem",fontWeight:"bold"}}>{data.listItem}</li></div>
                     <div style={{width:"20%"}}>
-                      <button className="btn btn-primary" style={{marginLeft:"10px",padding:"1px"}}onClick={()=>handleEdit(data)}>Edit</button>
-                      <button className="btn btn-primary" style={{marginLeft:"10px",backgroundColor:"none",padding:"1px"}} onClick={()=>handleDelete(data)}>Delete</button>
+                      <EditIcon style={{margin:"10px",font:"green",fontWeight:"bold"}} onClick={()=>handleEdit(data)}/>
+                      {/* <button className="btn btn-primary" style={{margin:"10px",padding:"1px"}} >Edit</button> */}
+                      <DeleteIcon style={{margin:"10px",font:"red",fontWeight:"bold"}} onClick={()=>handleDelete(data)}/>                     
+                      {/* <button className="btn btn-primary" style={{margin:"10px",backgroundColor:"none",padding:"1px"}} >Delete</button> */}
                     </div>
                   </div>
                 </ul>
